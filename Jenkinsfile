@@ -6,7 +6,7 @@ pipeline {
 
 	stages {
 		stage("Build") {
-			node {
+			steps {
 				sh "echo ${VAR1}"
 			}
 		}
