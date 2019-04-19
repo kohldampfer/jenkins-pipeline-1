@@ -1,5 +1,7 @@
 pipeline {
 
+	agent any
+
 	environment {
 		VAR1 = "somevalue"
 	}
