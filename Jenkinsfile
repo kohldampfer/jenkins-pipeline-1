@@ -3,19 +3,22 @@ pipeline {
 	agent any
 
 	environment {
-		VAR1 = "somevalue"
+		VAR1 = "somevalue1"
 	}
 
 	stages {
 		stage("Build") {
 			steps {
-				sh "echo ${VAR1}"
+				sh "echo First job"
+				sh "printenv"
+				sh "VAR1=moep"
+				sh "printenv"
 			}
 		}
 
 		stage("Trigger") {
 			steps {
-				build job: 'Pipe 2', parameters: [string(name: 'VAR2', value: "somevalue2")], wait: false
+				build job: 'Pipe 2', parameters: [string(name: 'VAR2', value: env.VAR1)], wait: false
 			}
 		}
 	}
