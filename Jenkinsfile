@@ -11,7 +11,7 @@ pipeline {
 			steps {
 				sh "echo First job"
 				sh "printenv"
-				sh "VAR1=moep"
+				sh "export VAR1=moep"
 				sh "printenv"
 			}
 		}
