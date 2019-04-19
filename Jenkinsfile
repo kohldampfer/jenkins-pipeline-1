@@ -4,9 +4,11 @@ pipeline {
 		VAR1 = "somevalue"
 	}
 
-	stage("Build") {
-		node {
-			sh "echo ${VAR1}"
+	stages {
+		stage("Build") {
+			node {
+				sh "echo ${VAR1}"
+			}
 		}
 	}
 
